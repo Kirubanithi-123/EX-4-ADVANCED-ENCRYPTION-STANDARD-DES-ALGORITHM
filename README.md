@@ -1,4 +1,4 @@
-# EX-7-ADVANCED-ENCRYPTION-STANDARD-DES-ALGORITHM
+# EX-4-ADVANCED-ENCRYPTION-STANDARD-DES-ALGORITHM
 
 ## Aim:
   To use Advanced Encryption Standard (AES) Algorithm for a practical application like URL Encryption.
@@ -10,42 +10,40 @@
   4. AES operates on a 4 × 4 column-major order array of bytes, termed the state
 
 ## PROGRAM: 
-```c
+```
 #include <stdio.h>
 #include <string.h>
 
+// XOR encryption function
+void xor_encrypt_decrypt(char *input, char *key) {
+    int input_len = strlen(input);
+    int key_len = strlen(key);
 
-  void xor_encrypt_decrypt(char *input, char *key) {
-int input_len = strlen(input);
-int key_len = strlen(key);
-
-for (int i = 0; i < input_len; i++) {
-    input[i] = input[i] ^ key[i % key_len];
-}
+    for (int i = 0; i < input_len; i++) {
+        input[i] = input[i] ^ key[i % key_len]; // XOR encryption
+    }
 }
 
 int main() {
-    printf("\n\n\n\n      ***** ADVANCED-ENCRYPTION-STANDARD-DES-ALGORITHM *****\n\n\n");
-    
-char url[] = "KIRUBANITHI";
-char key[] = "secretkey"; 
+    char url[] = "https://www.flipkart.com/";
+    char key[] = "secretkey"; // Simple key for XOR encryption
 
-printf("Original text: %s\n", url);
+    printf("Original URL: %s\n", url);
 
-xor_encrypt_decrypt(url, key);
-printf("Encrypted text: %s\n", url);
+    // Encrypt the URL
+    xor_encrypt_decrypt(url, key);
+    printf("Encrypted URL: %s\n", url);
 
-xor_encrypt_decrypt(url, key);
-printf("Decrypted text: %s\n", url);
+    // Decrypt the URL (since XOR is reversible using the same key)
+    xor_encrypt_decrypt(url, key);
+    printf("Decrypted URL: %s\n", url);
 
-return 0;
+    return 0;
 }
-
 ```
 ## OUTPUT:
-![image](https://github.com/user-attachments/assets/ae6d4ae0-75fa-4684-9abf-f5d7f15e1da9)
-
+![Screenshot 2024-10-09 150756](https://github.com/user-attachments/assets/99e1f0f3-d55f-4dad-902a-e3691390479c)
 
 
 ## RESULT: 
-The execution program is successfully executed.
+Thus , to use Advanced Encryption Standard (AES) Algorithm for a practical application like URL Encryption is done successfully.
